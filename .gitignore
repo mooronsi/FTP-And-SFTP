@@ -1,0 +1,5 @@
+.env
+.vscode
+
+ftp-data/*
+sftp-data/*

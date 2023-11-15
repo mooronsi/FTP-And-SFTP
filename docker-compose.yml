@@ -1,0 +1,28 @@
+services:
+  ftp-server:
+    container_name: ftp-server
+    environment:
+      FTP_USER: ${FTP_USER}
+      FTP_PASS: ${FTP_PASS}
+    image: garethflowers/ftp-server
+    ports:
+      - '19-20:20-21/tcp'
+      - '40000-40009:40000-40009/tcp'
+    volumes:
+      - type: bind
+        source: ./ftp-data
+        target: /home/${FTP_USER}
+
+  sftp-server:
+    container_name: sftp-server
+    build:
+      context: ./sshd
+      args:
+        SSH_MASTER_USER: ${SSH_MASTER_USER}
+        SSH_MASTER_PASS: ${SSH_MASTER_PASS}
+    ports:
+      - 2222:22
+    volumes:
+      - type: bind
+        source: ./sftp-data
+        target: /home/${SSH_MASTER_USER}
