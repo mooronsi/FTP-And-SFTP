@@ -3,3 +3,6 @@
 
 ftp-data/*
 sftp-data/*
+
+!ftp-data/.gitkeep
+!sftp-data/.gitkeep

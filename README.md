@@ -4,7 +4,6 @@ FTP and SFTP server in docker
 
 ## Run
 
-- Create ftp-data and sftp-data directories
 - docker compose up -d
 
 ### Additional data
